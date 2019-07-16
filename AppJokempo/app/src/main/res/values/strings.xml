@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">App Jokempo</string>
+    <string name="escolhadoapp">ESCOLHA DO APP</string>
+    <string name="escolha_uma_op_o_abaixo">ESCOLHA UMA OPÇÃO ABAIXO</string>
+    <string name="escolhaapp">ESCOLHAAPP</string>
+    <string name="escolhausuario_pedra">ESCOLHAUSUARIO-PEDRA</string>
+    <string name="escolhausuario_papel">ESCOLHAUSUARIO-PAPEL</string>
+    <string name="escolhausuario_tesoura">ESCOLHAUSUARIO-TESOURA</string>
 </resources>
