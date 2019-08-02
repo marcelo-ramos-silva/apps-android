@@ -13,22 +13,60 @@
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etNomeProduto"
+            android:id="@+id/idNomeProduto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="Nome produto" />
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/btEnviar"
+    <TextView
+        android:id="@+id/idTituloCores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="CORES"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/idCBBranco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Branco" />
+
+    <CheckBox
+        android:id="@+id/idCBVerde"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Verde" />
+
+    <CheckBox
+        android:id="@+id/idCBVermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vermelho" />
+
+    <Button
+        android:id="@+id/idBTEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:onClick="btEnviar"
         android:text="Enviar" />
 
     <TextView
-        android:id="@+id/tvResultado"
+        android:id="@+id/idResultadoText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resultado" />
+        android:text="Resultado TextView" />
+
+    <TextView
+        android:id="@+id/idResultadoCB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Resultado CheckBox" />
 </LinearLayout>
