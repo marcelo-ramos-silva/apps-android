@@ -5,9 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.util.ArrayList;
@@ -116,6 +118,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btEnviar(View view){
+
+        Toast.makeText(getApplicationContext(), "Botão pressionado", Toast.LENGTH_LONG).show();
+
+        /*
+        ImageView imagem = new ImageView(getApplicationContext());
+        imagem.setImageResource(android.R.drawable.star_big_off);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(imagem);
+        toast.show();
+        */
+
         capituraText();
         verificaCheck();
         verificaRadioButton();
