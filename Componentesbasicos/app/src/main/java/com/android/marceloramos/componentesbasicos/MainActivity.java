@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox cbBranco, cbVerde, cbVermelho;
     List<String> check = new ArrayList<String>();
     private RadioGroup rgEstoque;
+    private ToggleButton toogleEstado;
+    private Switch switchEstado;
+    private CheckBox checkEstado;
+    private TextView resultadoToogle, resultadoSwitch, resultadoCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +39,24 @@ public class MainActivity extends AppCompatActivity {
         cbVerde = findViewById(R.id.idCBVerde);
         cbVermelho = findViewById(R.id.idCBVermelho);
         rgEstoque = findViewById(R.id.idRGEstoque);
+
+        toogleEstado = findViewById(R.id.idToggleButton);
+        switchEstado = findViewById(R.id.idSwitch);
+        checkEstado = findViewById(R.id.idCheckBox);
+        resultadoToogle = findViewById(R.id.idResultadoToogle);
+        resultadoSwitch = findViewById(R.id.idResultadoSwitch);
+        resultadoCheckBox = findViewById(R.id.idResultadoCheckBox);
     }
 
     //recupera texto do EditText
     public void capituraText(){
+
         String nomeProduto = campoProduto.getText().toString();
         resultadoText.setText("Nome do Produto: " + nomeProduto + "\n");
     }
 
     public void verificaCheck(){
+
         check.clear();
 
         if(cbBranco.isChecked()){
@@ -60,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void verificaRadioButton(){
+
         rgEstoque.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup ragioGroup, int i) {
@@ -72,9 +88,39 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void verificaToogle(){
+
+        if(toogleEstado.isChecked()){
+            resultadoToogle.setText("toogleButton ligado\n");
+        }else{
+            resultadoToogle.setText("toogleButton desligado\n");
+        }
+    }
+
+    public void verificaSwitch(){
+
+        if(switchEstado.isChecked()){
+            resultadoSwitch.setText("switch ligado\n");
+        }else{
+            resultadoSwitch.setText("switch desligado\n");
+        }
+    }
+
+    public void verificaCheckBox(){
+
+        if(checkEstado.isChecked()){
+            resultadoCheckBox.setText("checkBox ligado\n");
+        }else {
+            resultadoCheckBox.setText("checkBox desligado\n");
+        }
+    }
+
     public void btEnviar(View view){
         capituraText();
         verificaCheck();
         verificaRadioButton();
+        verificaToogle();
+        verificaSwitch();
+        verificaCheckBox();
     }
 }
