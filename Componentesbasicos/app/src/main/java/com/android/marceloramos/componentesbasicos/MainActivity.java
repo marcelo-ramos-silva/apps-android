@@ -1,6 +1,8 @@
 package com.android.marceloramos.componentesbasicos;
 
+import android.content.DialogInterface;
 import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -119,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void btEnviar(View view){
 
-        Toast.makeText(getApplicationContext(), "Botão pressionado", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Botão pressionado", Toast.LENGTH_LONG).show();
 
         /*
         ImageView imagem = new ImageView(getApplicationContext());
@@ -130,6 +132,44 @@ public class MainActivity extends AppCompatActivity {
         toast.setView(imagem);
         toast.show();
         */
+
+        //criar AlertDialog
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+
+        //configurar titulo e mensagem
+
+        dialog.setTitle("AlertDialog");
+        dialog.setMessage("Deseja enviar as informações selecionadas?");
+
+        //configurar cancelamento
+
+        dialog.setCancelable(false);
+
+        //configurar ícone
+
+        dialog.setIcon(android.R.drawable.ic_delete);
+
+        //configurar ações para botão sim ou não
+
+        dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+
+                Toast.makeText(getApplicationContext(), "Sim foi pressionado", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                Toast.makeText(getApplicationContext(), "Não foi pressionado", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //criar e exibir AlertDialog
+
+        dialog.create();
+        dialog.show();
 
         capituraText();
         verificaCheck();
