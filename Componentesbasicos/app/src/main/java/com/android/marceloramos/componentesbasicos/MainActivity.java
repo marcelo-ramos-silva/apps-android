@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -24,10 +25,14 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox cbBranco, cbVerde, cbVermelho;
     List<String> check = new ArrayList<String>();
     private RadioGroup rgEstoque;
+
     private ToggleButton toogleEstado;
     private Switch switchEstado;
     private CheckBox checkEstado;
     private TextView resultadoToogle, resultadoSwitch, resultadoCheckBox;
+
+    private ProgressBar progressBar, progressBarCarregando;
+    private int progresso = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
         resultadoToogle = findViewById(R.id.idResultadoToogle);
         resultadoSwitch = findViewById(R.id.idResultadoSwitch);
         resultadoCheckBox = findViewById(R.id.idResultadoCheckBox);
+
+        progressBar = findViewById(R.id.idProgressBar);
+        progressBarCarregando = findViewById(R.id.idProgressBarCarregando);
+
+        progressBarCarregando.setVisibility(View.GONE);
     }
 
     //recupera texto do EditText
@@ -170,6 +180,45 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.create();
         dialog.show();
+
+        //progressBar
+
+        //this.progresso = this.progresso + 10;
+        //progressBar.setProgress(this.progresso);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                for(int i = 0; i <= 100; i++){
+
+                    System.out.println(i);
+
+                    final int progress = i;
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setProgress(progress);
+
+                            if(progress == 100){
+                                progressBarCarregando.setVisibility(View.GONE);
+                            }
+                        }
+                    });
+
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
+        //progressBarCarregando
+
+        progressBarCarregando.setVisibility(View.VISIBLE);
 
         capituraText();
         verificaCheck();

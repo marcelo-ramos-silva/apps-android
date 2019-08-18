@@ -135,6 +135,21 @@
             android:layout_height="wrap_content"
             android:text="Lembrar senha" />
 
+        <ProgressBar
+            android:id="@+id/idProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="100" />
+
+        <ProgressBar
+            android:id="@+id/idProgressBarCarregando"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
         <Button
             android:id="@+id/idBTEnviar"
             android:layout_width="match_parent"
