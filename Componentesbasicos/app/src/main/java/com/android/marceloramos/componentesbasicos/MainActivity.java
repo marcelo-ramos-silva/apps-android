@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     private Switch switchEstado;
     private CheckBox checkEstado;
     private TextView resultadoToogle, resultadoSwitch, resultadoCheckBox;
+
+    private SeekBar seekBar;
+    private TextView textProgresso;
 
     private ProgressBar progressBar, progressBarCarregando;
     private int progresso = 0;
@@ -55,6 +59,26 @@ public class MainActivity extends AppCompatActivity {
         resultadoToogle = findViewById(R.id.idResultadoToogle);
         resultadoSwitch = findViewById(R.id.idResultadoSwitch);
         resultadoCheckBox = findViewById(R.id.idResultadoCheckBox);
+
+        seekBar = findViewById(R.id.idSeekBar);
+        textProgresso = findViewById(R.id.idTextProgresso);
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textProgresso.setText("Progresso: " + seekBar.getProgress() + "/" + seekBar.getMax());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(getApplicationContext(), "SeekBar alterado", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(getApplicationContext(), "SeekBar não está pressionado", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         progressBar = findViewById(R.id.idProgressBar);
         progressBarCarregando = findViewById(R.id.idProgressBarCarregando);
@@ -144,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         */
 
         //criar AlertDialog
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        /*AlertDialog.Builder dialog = new AlertDialog.Builder(this);
 
         //configurar titulo e mensagem
 
@@ -179,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
         //criar e exibir AlertDialog
 
         dialog.create();
-        dialog.show();
+        dialog.show();*/
 
         //progressBar
 

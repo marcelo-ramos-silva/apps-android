@@ -135,6 +135,20 @@
             android:layout_height="wrap_content"
             android:text="Lembrar senha" />
 
+        <SeekBar
+            android:id="@+id/idSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="10" />
+
+        <TextView
+            android:id="@+id/idTextProgresso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Progresso" />
+
         <ProgressBar
             android:id="@+id/idProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
