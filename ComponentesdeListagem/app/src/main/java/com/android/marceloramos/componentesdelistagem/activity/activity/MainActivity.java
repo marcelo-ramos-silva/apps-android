@@ -1,11 +1,18 @@
-package com.android.marceloramos.componentesdelistagem.activity;
+package com.android.marceloramos.componentesdelistagem.activity.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 import com.android.marceloramos.componentesdelistagem.R;
+import com.android.marceloramos.componentesdelistagem.activity.adapter.Adapter;
+import com.android.marceloramos.componentesdelistagem.activity.model.Filme;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }; */
 
     private RecyclerView recyclerView;
+    private List<Filme> listaFilmes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +59,50 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.idRecyclerView);
 
-        //configurar adapter
+        //listagem de filmes
+        this.criarFilmes();
 
+        //configurar adapter
+        Adapter adapter = new Adapter(listaFilmes);
 
         //  configurar recyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        //recyclerView.setAdapter();
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        recyclerView.setAdapter(adapter);
+    }
+
+    public void criarFilmes(){
+
+        Filme filme = new Filme("Homem Aranha - De volta ao lar", "Aventura","2017");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Mulher Maravilha", "Fantasia","2017");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Capitão América - Guerra Civíl", "Aventura/Ficção","2016");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("It: A Coisa", "Drama/Terror","2017");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Liga da Justiça", "Ficção","2017");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Pica-Pau: O filme", "Comédia/Animação","2017");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("A Múmia", "Terror","2017");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("A Bela e a Fera", "Romance","2017");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Carros 3", "Comédia","2017");
+        this.listaFilmes.add(filme);
+
+        filme = new Filme("Meu Malvado Favorito 3", "Comédia","2017");
+        this.listaFilmes.add(filme);
     }
 }
