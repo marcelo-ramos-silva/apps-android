@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Componentes de Listagem</string>
+    <string name="title_activity_recicler_view">ReciclerView</string>
 </resources>
