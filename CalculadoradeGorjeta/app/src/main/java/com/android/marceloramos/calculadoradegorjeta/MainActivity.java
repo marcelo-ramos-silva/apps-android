@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         double total =  gorjeta + valorDigitado;
 
         //exibir gorjeta total
-        textGorjeta.setText("R$ " + Math.round(gorjeta));
-        textTotal.setText("R$ " + total);
+        textGorjeta.setText("R$ " + Math.floor(gorjeta));
+        textTotal.setText("R$ " + Math.floor(total));
     }
 }
